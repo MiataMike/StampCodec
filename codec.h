@@ -11,14 +11,14 @@
 #ifndef CODEC_H
 #define	CODEC_H
 
+#include <stdlib.h>
 
 //pass the data into this function to create the message that can be output to the sendUART() function
-char* buildMessage(int status, char* buf);
+void buildMessage(long status, char *buf, char *out);
 
 
 //This gets called by buildMessage to calculate the CRC once everything is built
-int calcCRC(char* str);
-
+unsigned short crc16(char *ptr, int count);
 
 
 
