@@ -2,6 +2,9 @@
 
 This C library contains the function used to build the codec message from data
 
+## capture file
+This file is an example of the data stream captured using realterm
+
 The format goes like this
 - Start byte (1B)
 - Status bytes (3B)
