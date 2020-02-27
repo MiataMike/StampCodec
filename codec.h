@@ -12,6 +12,7 @@
 #define	CODEC_H
 
 #include <stdlib.h>
+#include <string.h>
 
 //pass the data into this function to create the message that can be output to the sendUART() function
 void buildMessage(long status, char *buf, char *out);

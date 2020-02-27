@@ -16,18 +16,19 @@ void buildMessage(long status, char *buffr, char *out)
 	out[2] = 0;
 	out[3] = status;
 	//Blob length
-	out[4] = strlen(buffr); // buffr must be null terminated (it is)
+    long length = 0;
+	length = strlen(buffr); // buffr must be null terminated (it is)
+	out[4] = (length >> 8) && 0xFF;
+	out[5] = (length >> 0) && 0xFF;
 	//CSV blob
-    int length = 0;
-    length = strlen(buffr);
 	for(i = 0; i < strlen(buffr); i++)
 	{
-		out[i+5] = buffr[i];
+		out[i+6] = buffr[i];
 	}	// add data to message
 	//CRC
     crcInt = crc16(out, length+5);
-    out[length+5] = (char)(crcInt >> 8);
-    out[length+6] = (char)(crcInt >> 0);
+    out[length+6] = (char)(crcInt >> 8);
+    out[length+7] = (char)(crcInt >> 0);
 	return;
 }
 

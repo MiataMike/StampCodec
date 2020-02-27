@@ -8,7 +8,7 @@ This file is an example of the data stream captured using realterm
 The format goes like this
 - Start byte (1B)
 - Status bytes (3B)
-- Blob length (1B)
+- Blob length (2B)
 - CSV Blob (length changes at runtime)
 - CRC16 Xmodem	(2B)
 
@@ -19,7 +19,7 @@ This is the start of header byte, 0x01. This was chosen to be congruent with the
 These bytes are the alarm status bytes, with 12 sets of 2 bits. 0b00 is green, 0b01 is yellow, 0b10 is null and 0b11 is red. We'll fill in from the least significant bits so we're only interested in the final nibble of byte 3. Channel 0 in red alarm and channel 1 in yellow would be 0x00 0x00 0x07
 The reason for the ordering of the alarm states is that our yellow detection scheme can go back to un-alarm after saturation, and the sensor's alarm will remain red, even in clean air. This is the null state and should prevent false positives
 ## Blob length
-This is the length of the debug data, not the entire message. The entire message should be 7+N bytes
+This is the length of the debug data, not the entire message. The entire message should be 8+N bytes
 
 ## CSV blob
 This is datalogging information and not covered in this scope
