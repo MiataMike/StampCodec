@@ -26,7 +26,7 @@ void buildMessage(long status, char *buffr, char *out)
 		out[i+6] = buffr[i];
 	}	// add data to message
 	//CRC
-    crcInt = crc16(out, length+5);
+    crcInt = crc16(out, length+6);
     out[length+6] = (char)(crcInt >> 8);
     out[length+7] = (char)(crcInt >> 0);
 	return;
