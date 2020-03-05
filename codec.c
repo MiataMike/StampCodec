@@ -18,8 +18,8 @@ void buildMessage(long status, char *buffr, char *out)
 	//Blob length
     long length = 0;
 	length = strlen(buffr); // buffr must be null terminated (it is)
-	out[4] = (length >> 8) && 0xFF;
-	out[5] = (length >> 0) && 0xFF;
+	out[4] = (length >> 8) & 0xFF;
+	out[5] = (length >> 0) & 0xFF;
 	//CSV blob
 	for(i = 0; i < strlen(buffr); i++)
 	{
