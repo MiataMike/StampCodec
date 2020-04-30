@@ -30,3 +30,5 @@ See codec.c for real implementation
 Helpful resources below:
 https://stackoverflow.com/questions/17196743/crc-ccitt-implementation
 https://crccalc.com/
+
+☺
