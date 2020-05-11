@@ -1,11 +1,10 @@
 # StampCodec
 
-This C library contains the function used to build the codec message from data
+This ICD contains the formatting used to build the MOSA's message, the C implementation and data stream files.  
+The MOSA powers up and calibrates, then immediately starts sending data at a rate of approximately a message every .7 seconds using UART and USB if available. If UART is used, it will be formatted using the codec below. USB omits the packet overhead and only sends the 'blob' data. 
+The MOSA does not need to accept any commands to send data.
 
-## capture file
-This file is an example of the data stream captured using realterm
-
-The format goes like this
+## Data Format Specification
 - Start byte (1B)
 - Status bytes (3B)
 - Blob length (2B)
@@ -31,4 +30,6 @@ Helpful resources below:
 https://stackoverflow.com/questions/17196743/crc-ccitt-implementation
 https://crccalc.com/
 
-☺
+
+## Capture files
+The files included in this repo is are examples of the data stream captured using realterm. capture.ascii is the data being shown as ascii characters, so a blob length of 37 bytes would show as the character %. The capturehex.txt file is the text representation of the data, where 37 decimal is shown as 25 hex. These datastreams can be used to validate the decoding of the data
