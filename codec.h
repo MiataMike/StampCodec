@@ -27,7 +27,6 @@ unsigned short crc16(char *ptr, int count);
 
 
 
-
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
