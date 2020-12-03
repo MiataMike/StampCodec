@@ -12,8 +12,8 @@ void buildMessage(long status, char *buffr, char *out)
 	//Start Byte
 	out[0] = 0x01; // start ☺
 	//Status Byte
-	out[1] = 0; // shift and mask to separate out the bytes
-	out[2] = 0;
+	out[1] = status >> 16; // shift and mask to separate out the bytes
+	out[2] = status >> 8;
 	out[3] = status;
 	//Blob length
     long length = 0;
